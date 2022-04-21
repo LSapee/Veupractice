@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="app">
+        <div>
+            <img v-bind:src="imagePath" v-bind:width="width">
+        </div>
+        <div>
+            <button @click="clickDogButton">イヌ</button>
+            <button @click="clickCatButton">ネコ</button>
+            <button @click="widenImage">600</button>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+    <script>
+        new Vue({
+            el: '#app',
+            data: {
+                imagePath: '',
+                width :300
+            },
+            methods: {
+                clickDogButton: function(){
+                    this.imagePath ='https://mblogthumb-phinf.pstatic.net/MjAxODA0MDZfMiAg/MDAxNTIzMDAyNTU5Njky.vbM03feQ5iozyJHV0T0wdLQwvr6_oB6gBfysDh2wxA4g.Z5R40zkr568wrQxroXHoR5GgBER1-PgIfHk0yFRhBjgg.PNG.nubgood/2018-04-06_11%3B38%3B40.PNG?type=w800';
+                },
+                clickCatButton: function(){
+                    this.imagePath ='https://dimg.donga.com/ugc/CDB/WEEKLY/Article/5b/b3/22/85/5bb32285000ed2738de6.jpg';
+                },
+                widenImage: function(){
+                    this.width = 600;
+                }
+            }
+            
+        })
+    </script>
+</body>
+
+</html>
+
+<!-- v:bind 생략 -> : -->
+<!-- v-on:click 생략 -> @click -->

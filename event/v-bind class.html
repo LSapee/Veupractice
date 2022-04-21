@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .warning{
+            background-color:red;
+        }
+        .bg{
+            background-color: green;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="app">
+        <div v-bind:class="styleObject">これは警護です。</div>
+        <div>
+            <button @click="makeBackgroundRed">切り替える</button>
+            <button @click="makeBackgroundGreen">green</button>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+    <script>
+        new Vue({
+            el: '#app',
+            data: {
+                styleObject:{
+                    warning: false,
+                    bg : false
+                }
+                
+            },
+            methods: {
+               makeBackgroundRed : function(){
+                   this.styleObject.warning = !this.styleObject.warning;
+                    this.styleObject.bg = false;
+                },
+               makeBackgroundGreen : function(){
+                   this.styleObject.bg = !this.styleObject.bg;
+                   this.styleObject.warning = false;
+               }
+            }
+            
+        })
+    </script>
+</body>
+
+</html>
+
+<!-- v:bind 생략 -> : -->
+<!-- v-on:click 생략 -> @click -->
