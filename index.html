@@ -10,11 +10,8 @@
 
 <body>
     <div id="app">
-        <ul>
-            <li v-for="person in persons">
-                {{person.name}}({{person.age}}歳)
-            </li>
-        </ul>
+        {{person.name}}{{person.age}}
+        {{nextYear('hello')}}
     </div>
 
     <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
@@ -22,36 +19,18 @@
         new Vue({
             el: '#app',
             data: {
-                persons: [{
-                    name: "李在寛",
-                    age: 27,
-                    address: {
-                        prefecture: "東京都",
-                        city: "東京都",
-                        town: "東京都",
-                        other: "1丁目１番地"
-                    }
+               person: {
+                name:"Lee",
+                age :20
+               }
+            },
+            methods :{
+                nextYear(greeting){
+                    return greeting +"!" + this.person.name + " " + (this.person.age+1);
                 },
-                {
-                    name: "Lee",
-                    age: 21,
-                    address: {
-                        prefecture: "東京都",
-                        city: "東京都",
-                        town: "東京都",
-                        other: "1丁目１番地"
-                    }
-                },
-                {
-                    name: "이",
-                    age: 25,
-                    address: {
-                        prefecture: "東京都",
-                        city: "東京都",
-                        town: "東京都",
-                        other: "1丁目１番地"
-                    },
-                }]
+                oterMethod:function(){
+                    this.nextYear();
+                }
             }
         })
     </script>

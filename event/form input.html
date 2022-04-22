@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+    <link href="style.css" rel="stylesheet" type="text/css">
+<body>
+    <div id="app">
+        <h1>趣味</h1>
+        <!-- <input type="text" v-model="a"/> -->
+        <!-- <input type="redio" v-model="user" /> -->
+        <!-- <textarea v-model="article"></textarea> <-->
+       <!-- <input type="checkbox" v-model="agree" value="音楽"/>音楽<br/>
+       <input type="checkbox" v-model="agree" value="スポーツ"/>スポーツ<br/>
+       <input type="checkbox" v-model="agree" value="映画"/>映画 -->
+       <!-- <input type="radio" v-model="hobby" value="音楽"/>音楽<br/>
+       <input type="radio" v-model="hobby" value="スポーツ"/>スポーツ<br/>
+       <input type="radio" v-model="hobby" value="映画"/>映画 -->
+        <!-- <select v-model="hobby" multiple>
+            <option disabled value="">選択してください</option>
+            <option>音楽</option>
+            <option>スポーツ</option>
+            <option>映画</option>
+        </select> -->
+        <select v-model="selected">
+            <option v-for="friend in friends" :value="friend.id">{{friend.name}}</option>
+        </select>
+      
+        <pre>{{selected}}</pre>
+    </div>    
+
+    <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+    <script>
+        new Vue({
+            el: '#app',
+            data : {
+                
+                user : 'aaaa',
+                a:'hello',
+                article:"dasdsa",
+                agree: [],
+                hobby : [],
+                selected : null,
+                friends:[{
+                    id:1,
+                    name:"Lee"
+                },{
+                    id:2,
+                    name:"Wang"
+                },{
+                    id:3,
+                    name:"kim"
+                },{
+                    id:4,
+                    name:"tin"
+                }
+            ]
+            },
+            methods:{
+         
+            },
+        })
+    </script>
+</body>
+</html>

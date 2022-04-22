@@ -9,7 +9,16 @@
     <link href="style.css" rel="stylesheet" type="text/css">
 <body>
     <div id="app">
- 
+        <!-- <input v-if="isFormDisplay" type="text" placeholder="ユーザー名"/>
+        <input v-else type="text" placeholder="パスワード"/> -->
+    
+        <!-- <input v-if="isFormDisplay === 'user'" type="text" placeholder="ユーザー名"/>
+        <input v-else-if="isFormDisplay ==='password'" type="text" placeholder="パスワード"/>
+        <input v-else type="text" placeholder="その他"/> -->
+        
+        <input v-show="isFormDisplay === 'user'" type="text" placeholder="ユーザー名"/>
+        
+        <button @click="changeFormDisplay">フォーム表示の切り替え</button>
     </div>    
 
     <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
@@ -17,9 +26,12 @@
         new Vue({
             el: '#app',
             data : {
+                isFormDisplay : 'user'
             },
             methods:{
-
+                changeFormDisplay : function(){
+                    this.isFormDisplay=!this.isFormDisplay;
+                }
             },
         })
     </script>

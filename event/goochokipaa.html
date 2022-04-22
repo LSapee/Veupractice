@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>じゃんけん</title>
+</head>
+<body>
+    <div id ="app">
+<!-- 相手の手 -->
+    <div>
+        <img :src="HandImg">
+    </div>
+<!-- 私の手 -->
+    <button @click = "chang('goo')">ぐー</button>
+    <button @click = "chang('choki')">ちょき</button>
+    <button @click = "chang('paa')"> ぱー</button>
+<!--  -->
+    <p> 相手：{{aitehand}}</p>
+    <p> 私：{{myHand1}}</p>
+    <p>Result : {{Result}}</p>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+    <script>
+        new Vue({
+            el: '#app',
+            data : {
+                hand:["goo","choki","paa"],
+                aitehand:' ',
+                myHand1:' ',
+                Result:'',
+                HandImg:''
+            },
+            methods:{
+                chang(myHand){
+                    // aiteno te
+                    var aite = Math.floor(Math.random() * Math.floor(3));
+                    this.aitehand = this.hand[aite];
+                    if(this.aitehand === 'goo'){
+                        this.HandImg = 'https://cdn-ak.f.st-hatena.com/images/fotolife/k/kotobalover/20190623/20190623180238.png'
+                    }else if(this.aitehand === 'choki'){
+                        this.HandImg = 'https://cdn-ak.f.st-hatena.com/images/fotolife/k/kotobalover/20171223/20171223192617.jpg'
+                    }else if(this.aitehand === 'paa'){
+                        this.HandImg = 'https://cdn-ak.f.st-hatena.com/images/fotolife/k/kotobalover/20171223/20171223192619.jpg'
+                    }
+                    //watashino te
+                    this.myHand1 =myHand;
+                    // draw
+                    if(myHand === this.aitehand ){
+                        alert("draw");
+                        this.Result = "draw";
+                    }
+                    // win
+                    if(this.aitehand  === 'goo' && myHand === 'paa'){
+                        alert("YOU WiN");
+                        this.Result = "Win";
+                    }else if(this.aitehand  === 'choki' && myHand === 'goo'){
+                        alert("YOU WiN");
+                        this.Result = "Win";
+                    }else if(this.aitehand  === 'paa' && myHand === 'choki'){
+                        alert("YOU WiN");
+                        this.Result = "Win";
+                    }
+                    // Lose
+                    if(this.aitehand  === 'paa' && myHand === 'goo'){
+                        alert("YOU Lose ");
+                        this.Result = "Lose";
+                    }else if(this.aitehand  === 'goo' && myHand === 'choki'){
+                        alert("YOU Lose ");
+                        this.Result = "Lose";
+                    }else if(this.aitehand  === 'choki' && myHand === 'paa'){
+                        alert("YOU Lose ");
+                        this.Result = "Lose";
+                    }
+                    
+                }
+            }
+        })
+    </script>
+</body>
+</html>
